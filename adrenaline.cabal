@@ -1,0 +1,70 @@
+build-type: Simple
+cabal-version: >= 1.8
+
+name: adrenaline
+version: 0.0.0.0
+
+library
+  build-depends:
+    async,
+    base,
+    hspec,
+    lens,
+    mtl,
+    pipes,
+    pqueue,
+    process,
+    QuickCheck,
+    transformers,
+    unagi-chan,
+    unix,
+    uuid-types,
+    vector-space
+
+  exposed-modules:
+    Adrenaline,
+    Adrenaline.Monitor,
+    Adrenaline.Monitor.Scheduler,
+    Adrenaline.Monitor.Scheduler.Loop,
+    Adrenaline.Monitor.Scheduler.Loop.Gen,
+    Adrenaline.Monitor.Scheduler.Loop.Spec,
+    Adrenaline.Monitor.Scheduler.State,
+    Adrenaline.Monitor.Task,
+    Adrenaline.Monitor.Task.Execute,
+    Adrenaline.Monitor.Task.Gen,
+    Adrenaline.Poll,
+    Adrenaline.Poll.Gen,
+    Adrenaline.System,
+    Adrenaline.System.Gen,
+    Control.Exception.Sync,
+    Data.Time.Duration,
+    Data.Time.Duration.Gen,
+    Data.Time.Instant,
+    Data.Time.Instant.Gen,
+    Data.Uuid.Gen,
+    Network.Icmp.Echo,
+    Network.Ip,
+    Network.Ip.Gen
+
+  ghc-options:
+    -Wall
+    -Wincomplete-record-updates
+    -Wincomplete-uni-patterns
+
+  hs-source-dirs:
+    src
+
+test-suite adrenaline-test
+  build-depends:
+    adrenaline,
+    base,
+    hspec
+
+  hs-source-dirs:
+    boot
+
+  main-is:
+    adrenaline-test.hs
+
+  type:
+    exitcode-stdio-1.0
